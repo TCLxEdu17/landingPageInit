@@ -151,12 +151,13 @@ function validateEmail(email) {
  */
 function composeWhatsAppMessage(formData) {
     const lines = [
-        '*CLIENTE VIP - L&A Solutions*',
+        '*CLIENTE - L&A Solutions*',
         '',
         `*Nome:* ${formData.nome}`,
         `*E-mail:* ${formData.email}`,
         `*Telefone:* ${formData.telefone}`,
         `*Serviço:* ${formData.servico}`,
+        `*VIP:* ${formData.vip}`,
     ];
     
     if (formData.mensagem.trim()) {
@@ -220,6 +221,19 @@ document.getElementById('telefone').addEventListener('input', function(e) {
     e.target.value = formatPhoneNumber(e.target.value);
 });
 
+// Toggle VIP Sim/Não
+document.getElementById('vipSim').addEventListener('click', function() {
+    document.getElementById('vip').value = 'Sim';
+    this.classList.add('active');
+    document.getElementById('vipNao').classList.remove('active');
+});
+
+document.getElementById('vipNao').addEventListener('click', function() {
+    document.getElementById('vip').value = 'Não';
+    this.classList.add('active');
+    document.getElementById('vipSim').classList.remove('active');
+});
+
 // Validação de e-mail em tempo real
 document.getElementById('email').addEventListener('blur', function(e) {
     const email = e.target.value;
@@ -275,6 +289,7 @@ contactForm.addEventListener('submit', function(e) {
         email: document.getElementById('email').value,
         telefone: document.getElementById('telefone').value,
         servico: document.getElementById('servico').value,
+        vip: document.getElementById('vip').value,
         mensagem: document.getElementById('mensagem').value
     };
     

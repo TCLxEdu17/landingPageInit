@@ -487,6 +487,38 @@ body {
     color: var(--color-white);
 }
 
+/* Toggle Button Group (VIP Sim/Não) */
+.toggle-group {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: var(--spacing-md);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-dark-400);
+    background-color: var(--color-dark-900);
+    border: 2px solid var(--color-dark-600);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.toggle-btn:hover {
+    border-color: var(--color-dark-400);
+    color: var(--color-dark-200);
+}
+
+.toggle-btn.active {
+    background: var(--gradient-primary);
+    border-color: var(--color-primary);
+    color: var(--color-black);
+    box-shadow: var(--shadow-glow);
+}
+
 /* Input Validation States */
 .form-group input.input-error,
 .form-group select.input-error {
