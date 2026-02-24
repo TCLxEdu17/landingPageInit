@@ -151,21 +151,21 @@ function validateEmail(email) {
  */
 function composeWhatsAppMessage(formData) {
     const lines = [
-        '⭐ *CLIENTE VIP - L&A Solutions*',
+        '*CLIENTE VIP - L&A Solutions*',
         '',
-        `👤 *Nome:* ${formData.nome}`,
-        `📧 *E-mail:* ${formData.email}`,
-        `📞 *Telefone:* ${formData.telefone}`,
-        `🔧 *Serviço:* ${formData.servico}`,
+        `*Nome:* ${formData.nome}`,
+        `*E-mail:* ${formData.email}`,
+        `*Telefone:* ${formData.telefone}`,
+        `*Serviço:* ${formData.servico}`,
     ];
     
     if (formData.mensagem.trim()) {
-        lines.push('', `💬 *Obs:*`, formData.mensagem);
+        lines.push('', `*Obs:* _${formData.mensagem}_`);
     }
     
     lines.push(
         '',
-        `📅 ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'})}`
+        `_${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'})}_`
     );
     
     return lines.join('\n');
