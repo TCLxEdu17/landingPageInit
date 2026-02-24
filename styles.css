@@ -364,6 +364,188 @@ body {
     }
 }
 
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   VIP Benefits Section
+   ========================================== */
+.vip-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-dark-900);
+    position: relative;
+    overflow: hidden;
+}
+
+.vip-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+}
+
+.vip-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.vip-badge {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: var(--color-black);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    padding: var(--spacing-xs) var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    margin-bottom: var(--spacing-md);
+}
+
+.vip-header h2 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.vip-header h2 .highlight {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.vip-header p {
+    color: var(--color-dark-400);
+    font-size: 1.125rem;
+}
+
+.vip-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, var(--color-dark-700), var(--color-dark-800));
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-2xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.vip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+.vip-price {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--color-dark-600);
+}
+
+.price-tag {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.price-currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: 0.5rem;
+}
+
+.price-value {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1;
+}
+
+.price-cents {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-top: 0.5rem;
+}
+
+.price-period {
+    font-size: 1rem;
+    color: var(--color-dark-400);
+    margin-top: 1rem;
+    margin-left: var(--spacing-xs);
+}
+
+.price-promo {
+    display: inline-block;
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--color-success);
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-full);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.vip-benefits {
+    list-style: none;
+    margin-bottom: var(--spacing-xl);
+}
+
+.vip-benefits li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--color-dark-600);
+    color: var(--color-dark-200);
+    font-size: 1rem;
+}
+
+.vip-benefits li:last-child {
+    border-bottom: none;
+}
+
+.benefit-icon {
+    color: var(--color-primary);
+    font-size: 1rem;
+}
+
+.benefit-highlight {
+    background: rgba(249, 115, 22, 0.1);
+    margin: var(--spacing-sm) calc(var(--spacing-md) * -1);
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+    border-radius: var(--border-radius-md);
+    border-bottom: none !important;
+}
+
+.benefit-highlight span:last-child {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Header Nav */
+.header-nav {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
 /* ==========================================
    Contact Section
    ========================================== */
@@ -719,6 +901,15 @@ body {
         padding: 0 var(--spacing-md);
     }
     
+    .header-nav {
+        gap: var(--spacing-xs);
+    }
+    
+    .header-nav .btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.7rem;
+    }
+    
     .hero {
         padding: calc(var(--spacing-2xl) + 80px) 0 var(--spacing-2xl);
         min-height: auto;
@@ -730,6 +921,29 @@ body {
     
     .hero p {
         font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .vip-card {
+        margin: 0 var(--spacing-md);
+        padding: var(--spacing-lg);
+    }
+    
+    .price-value {
+        font-size: 3rem;
+    }
+    
+    .vip-benefits li {
+        font-size: 0.9rem;
     }
     
     .form-wrapper {

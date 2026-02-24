@@ -234,6 +234,13 @@ document.getElementById('vipNao').addEventListener('click', function() {
     document.getElementById('vipSim').classList.remove('active');
 });
 
+// Botão "Quero ser VIP" - marca VIP como Sim automaticamente
+document.getElementById('queroSerVip').addEventListener('click', function() {
+    document.getElementById('vip').value = 'Sim';
+    document.getElementById('vipSim').classList.add('active');
+    document.getElementById('vipNao').classList.remove('active');
+});
+
 // Validação de e-mail em tempo real
 document.getElementById('email').addEventListener('blur', function(e) {
     const email = e.target.value;
