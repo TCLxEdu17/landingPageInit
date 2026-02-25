@@ -540,6 +540,93 @@ body {
     font-weight: 600;
 }
 
+/* VIP FAQ */
+.vip-faq {
+    max-width: 600px;
+    margin: var(--spacing-2xl) auto 0;
+}
+
+.vip-faq h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-xl);
+}
+
+.faq-item {
+    background: var(--color-dark-800);
+    border: 1px solid var(--color-dark-600);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-sm);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.faq-item:hover {
+    border-color: var(--color-dark-500);
+}
+
+.faq-item.active {
+    border-color: var(--color-primary);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background: transparent;
+    border: none;
+    color: var(--color-dark-200);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.faq-question:hover {
+    color: var(--color-white);
+}
+
+.faq-item.active .faq-question {
+    color: var(--color-primary);
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-primary);
+    transition: transform var(--transition-normal);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal), padding var(--transition-normal);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+}
+
+.faq-answer p {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    color: var(--color-dark-400);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.faq-answer strong {
+    color: var(--color-white);
+}
+
 /* Header Nav */
 .header-nav {
     display: flex;
@@ -699,6 +786,20 @@ body {
     border-color: var(--color-primary);
     color: var(--color-black);
     box-shadow: var(--shadow-glow);
+}
+
+.toggle-group.error .toggle-btn {
+    border-color: var(--color-error);
+}
+
+.toggle-group.error .toggle-btn:not(.active) {
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
 }
 
 /* Input Validation States */
@@ -944,6 +1045,20 @@ body {
     
     .vip-benefits li {
         font-size: 0.9rem;
+    }
+    
+    .vip-faq {
+        margin: var(--spacing-xl) var(--spacing-md) 0;
+    }
+    
+    .faq-question {
+        padding: var(--spacing-md);
+        font-size: 0.9rem;
+    }
+    
+    .faq-answer p {
+        padding: 0 var(--spacing-md) var(--spacing-md);
+        font-size: 0.85rem;
     }
     
     .form-wrapper {

@@ -76,6 +76,11 @@ function validateForm(formData) {
         errors.push('Selecione um serviço de interesse');
     }
     
+    // Validação do campo VIP - garante que sempre tenha valor
+    if (!formData.vip || (formData.vip !== 'Sim' && formData.vip !== 'Não')) {
+        errors.push('Selecione se o cliente é VIP (Sim ou Não)');
+    }
+    
     return errors;
 }
 
@@ -226,12 +231,14 @@ document.getElementById('vipSim').addEventListener('click', function() {
     document.getElementById('vip').value = 'Sim';
     this.classList.add('active');
     document.getElementById('vipNao').classList.remove('active');
+    document.querySelector('.toggle-group').classList.remove('error');
 });
 
 document.getElementById('vipNao').addEventListener('click', function() {
     document.getElementById('vip').value = 'Não';
     this.classList.add('active');
     document.getElementById('vipSim').classList.remove('active');
+    document.querySelector('.toggle-group').classList.remove('error');
 });
 
 // Botão "Quero ser VIP" - marca VIP como Sim automaticamente
@@ -239,6 +246,7 @@ document.getElementById('queroSerVip').addEventListener('click', function() {
     document.getElementById('vip').value = 'Sim';
     document.getElementById('vipSim').classList.add('active');
     document.getElementById('vipNao').classList.remove('active');
+    document.querySelector('.toggle-group').classList.remove('error');
 });
 
 // Validação de e-mail em tempo real
@@ -300,10 +308,17 @@ contactForm.addEventListener('submit', function(e) {
         mensagem: document.getElementById('mensagem').value
     };
     
+    // Remove erro visual do toggle VIP
+    document.querySelector('.toggle-group').classList.remove('error');
+    
     // Valida o formulário
     const errors = validateForm(formData);
     
     if (errors.length > 0) {
+        // Destaca o toggle VIP se não foi selecionado
+        if (!formData.vip || (formData.vip !== 'Sim' && formData.vip !== 'Não')) {
+            document.querySelector('.toggle-group').classList.add('error');
+        }
         alert('Por favor, corrija os seguintes erros:\n\n' + errors.join('\n'));
         return;
     }
@@ -347,6 +362,24 @@ document.addEventListener('DOMContentLoaded', function() {
 // ==========================================
 // Animações e Efeitos
 // ==========================================
+
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', function() {
+        const faqItem = this.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // Fecha todos os outros
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Abre o clicado (se não estava aberto)
+        if (!isActive) {
+            faqItem.classList.add('active');
+        }
+    });
+});
 
 // Adiciona classe de scroll ao header quando rolar a página
 window.addEventListener('scroll', function() {
